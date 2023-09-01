@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href={{url_for('static',filename='css/style.css')}}>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Online Food Order</title>
+</head>
+
+<style>
+    body{
+        font-family:'Times New Roman', Times, serif;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        background-attachment: fixed;
+       }
+    a:hover{
+        text-decoration: none;
+        color: white
+       }
+    .container{
+        border: 2px solid black;
+        width: 40%;
+        border-radius: 25px;
+        background-color :#cccccc;
+        color: black;
+       }
+    footer{
+        position:fixed;
+   bottom:0;
+   width:100%;
+      /* Height of the footer */
+    }
+    .item{
+        display: flex;
+        float: right;
+    }
+
+
+</style>
+<body background="{{ url_for('static', filename ='mainimg.jpg')}}">
+    <nav id="navbar">
+        <div id="logo">
+            <img src={{url_for('static',filename='image/logo.png')}} alt="MyOnlineMeal.com">
+        </div>
+        </a> <div style="color : brown; font-family: 'Baloo Bhai', cursive; font-size: 1.8rem;"> Foodiez<br>Corner </div>
+        <ul class="navbar-nav mr-auto">
+        </ul>
+        <ul >
+            <li class="item"><a href="/Admin">Back</a></li>
+            <li class="item"><a href="/AddProduct">Add Product</a></li>
+
+        </ul>
+        </div>
+    </nav>
+
+
+
+
+
+     <div class="row m-5">
+            <div class="col-lg-12 text-center border rounded text-color white" style="background-color : white;">
+                <h2>Product Details</h2>
+            </div>
+            <div class="col-lg-12">
+                <div class="border bg-light rounded">
+             <table class="table">
+                <thead class="text-center">
+                    <th scope="col">Product ID</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Size</th>
+                    <th scope="col">Rate</th>
+
+                </thead>
+                <tbody class="text-center">
+    {% for item in result  %}
+
+
+                    <tr style="text-align: center;">
+
+                      <td>{{item.product_id}} </td>
+                      <td>{{item.category.upper()}}</td>
+                        <td>{{item.product_name.upper()}}</td>
+                        <td>{{item.size.upper()}}</td>
+                        <td> <h8> &#8377; {{item.price}} </h8> </td>
+                      <td>
+                            <form action="/DeleteProduct" method="POST">
+                            <button class='btn btn-outline-danger' name="remove"> Delete </button>
+                            <input type='hidden' name='pid' value="{{item.product_id}}">
+                            </form>
+                        </td>
+                    </tr>
+
+                </tbody>
+                  {% endfor %}
+             </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+<footer>
+        <div class="center">
+            Copyright &copy; www.myOnlineMeal.com. All rights reserved!
+        </div>
+    </footer>
+</body>
+</html>

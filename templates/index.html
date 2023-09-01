@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Online Food Order</title>
+    <link rel="stylesheet" href={{url_for('static',filename='css/style.css')}}>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif&display=swap" rel="stylesheet">
+</head>
+<style>
+    a{
+        text-decoration: none;
+        color: white
+       }
+</style>
+<body background = "{{url_for('static',filename='mainimg.jpg')}}">
+    <nav id="navbar">
+        <div id="logo">
+            <img src={{url_for('static',filename='image/logo.png')}} alt="MyOnlineMeal.com">
+        </div>
+        <div style="color : brown; font-family: 'Baloo Bhai', cursive; font-size: 1.8rem;"> Foodiez<br>Corner </div>
+        <ul>
+            <li class="item"><a href="#home">Home</a></li>
+            <li class="item"><a href="#services-container">Services</a></li>
+            <li class="item"><a href="#client-section">Our Clients</a></li>
+            <li class="item"><a href="#contact">Contact Us</a></li>
+            <li class="item"><a href="/SignIn">Login</a></li>
+            <li class="item"><a href="/SignUp">Registration</a></li>
+            <li class="item"><a href="/AdminLogin">Administrator</a></li>
+<!--            <li><button type="submit"><a href="/SignIn">Sign In</a></button></li>-->
+<!--            <li><button type="submit"><a href="/SignUp">Sign Up</a></button></li>-->
+<!--            <li><button type="submit"><a href="/AdminLogin">Administartor</a></button></li>-->
+        </ul>
+
+    </nav>
+
+    <section id="home" >
+        <style>
+        body{
+        background-repeat: no-repeat;
+        }
+        </style>
+        <h1 class="h-primary"><small><small>Welcome to the</small></small>
+            <center>Delicious World of Food!</center></h1>
+        <button class="btn"><a href="/Products">Chase the Flavor!</a></button>
+    </section>
+
+        <section id="services-container">
+        <h1 class="h-primary center" style="color : white;">Browse Categories</h1>
+            <div id="services">
+            <div class="box">
+                <img src={{url_for('static',filename='image/img1.jpg')}}>
+                 <form  action="/Search"  method="POST" >
+        <h2 class="h-secondary center">
+<!--            <input class="form-control me-2" type="hidden" value="breakfast" name="search">-->
+            <button type="submit" name="search" value='breakfast' class="btn btn-outline-success"  style="font-family: 'Baloo Bhai', cursive;">Breakfasts </button>
+</h2>
+                     </form>
+            </div>
+
+            <div class="box">
+                <img src={{url_for('static',filename='image/img2.jpg')}}>
+                <form class="d-flex" role="search" action="/Search"  method="POST" >
+        <h2 class="h-secondary center">
+            <button type="submit" name="search" value='rice' class="btn btn-outline-success" type="submit" style="font-family: 'Baloo Bhai', cursive;">
+                 Rice/Biryanis </button>
+</h2>
+                     </form>
+
+            </div>
+
+            <div class="box">
+                <img src={{url_for('static',filename='image/img3.jpg')}}>
+                <form class="d-flex" role="search" action="/Search"  method="POST" >
+        <h2 class="h-secondary center">
+            <button type="submit" name="search" value='sabji' class="btn btn-outline-success" type="submit" style="font-family: 'Baloo Bhai', cursive;">
+                Sabjis </button>
+</h2>
+                     </form>
+            </div>
+
+                <div class="box">
+                <img src={{url_for('static',filename='image/76.jpg')}}>
+                <form class="d-flex" role="search" action="/Search"  method="POST" >
+        <h2 class="h-secondary center">
+            <button type="submit" name="search" value='dal' class="btn btn-outline-success" type="submit" style="font-family: 'Baloo Bhai', cursive;">
+                Dal </button>
+</h2>
+                     </form>
+            </div>
+        </div>
+
+
+        </div>
+
+
+
+
+        <div id="services">
+            <div class="box">
+                <img src={{url_for('static',filename='image/img4.jpg')}}>
+                <form class="d-flex" role="search" action="/Search"  method="POST" >
+        <h2 class="h-secondary center">
+            <button type="submit" name="search" value='soup' class="btn btn-outline-success" type="submit" style="font-family: 'Baloo Bhai', cursive;">
+                 Soups </button>
+</h2>
+                     </form>
+            </div>
+
+            <div class="box">
+                <img src={{url_for('static',filename='image/img5.jpg')}}>
+                <form class="d-flex" role="search" action="/Search"  method="POST" >
+        <h2 class="h-secondary center">
+            <button type="submit" name="search" value='bread' class="btn btn-outline-success" type="submit" style="font-family: 'Baloo Bhai', cursive;">
+                 Chappatis </button>
+</h2>
+                     </form>
+            </div>
+
+            <div class="box">
+                <img src={{url_for('static',filename='image/img6.jpg')}}>
+                <form class="d-flex" role="search" action="/Search"  method="POST" >
+        <h2 class="h-secondary center">
+            <button type="submit" name="search" value='dessert' class="btn btn-outline-success" type="submit" style="font-family: 'Baloo Bhai', cursive;">
+                 Desserts </button>
+        </h2>
+                     </form>
+               </div>
+
+            <div class="box">
+                <img src={{url_for('static',filename='image/img7.jpg')}}>
+                <form class="d-flex" role="search" action="/Search"  method="POST" >
+            <h2 class="h-secondary center">
+            <button type="submit" name="search" value='' class="btn btn-outline-success" type="submit" style="font-family: 'Baloo Bhai', cursive;">
+                 All menu--> </button>
+            </h2>
+                     </form>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="center">
+            Copyright &copy; www.myOnlineMeal.com. All rights reserved!
+        </div>
+    </footer>
+</body>
+</html>
